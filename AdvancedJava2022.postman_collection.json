@@ -1,0 +1,446 @@
+{
+	"info": {
+		"_postman_id": "e98a6800-46fc-4fb7-ac6d-e8fdc2513eb6",
+		"name": "Java",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Driver",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/drivers/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"drivers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Drivers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Sebastian Vettel\",\n    \"points\" : 100,\n    \"dataOfBirth\" : \"1987-10-13\",\n    \"racingNumber\" : \"10\",\n    \"imagePath\" : \"\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/drivers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"drivers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Logo Image",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"Sebastian Vettel\",\n    \"points\" : 100,\n    \"dataOfBirth\" : \"1987-10-13\",\n    \"racingNumber\" : \"10\",\n    \"imagePath\" : \"\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/getLogo/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getLogo",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Team",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/teams/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teams",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Teams Sorted",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/teams?sort=name,asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teams"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "name,asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Team",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Macska Racing 2\",\n    \"nationality\": \"Hungarian\",\n    \"imagePath\": \"\",\n    \"drivers\": [],\n    \"points\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/teams",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teams"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Team With Driver",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"macska1\",\n    \"nationality\" : \"Italian\",\n    \"imagePath\" : \"\",\n    \"drivers\" : [{\n        \"id\" : 5,\n        \"name\": \"Macsak a nevem\",\n        \"age\": 32,\n        \"points\": 0,\n        \"dataOfBirth\": \"1990-10-12\",\n        \"racingNumber\": \"4\",\n        \"imagePath\": \"\"\n    }],\n    \"points\" : 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/teams/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teams",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Team",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"skldgfbsadjk\",\n    \"nationality\" : \"Magyar\",\n    \"imagePath\" : \"\",\n    \"drivers\" : [{\n        \"id\" : 1,\n        \"name\": \"Valteri Bottas\",\n        \"age\": 32,\n        \"points\": 0,\n        \"dataOfBirth\": \"1990-10-12\",\n        \"racingNumber\": \"45\",\n        \"imagePath\": \"\"\n    }]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/teams/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teams",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Team",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/drivers/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"drivers",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Circuit",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"skldgfbsadjk\",\n    \"nationality\" : \"Magyar\",\n    \"imagePath\" : \"\",\n    \"drivers\" : [{\n        \"id\" : 1,\n        \"name\": \"Valteri Bottas\",\n        \"age\": 32,\n        \"points\": 0,\n        \"dataOfBirth\": \"1990-10-12\",\n        \"racingNumber\": \"45\",\n        \"imagePath\": \"\"\n    }]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/circuits/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"circuits",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Circuits",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/circuits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"circuits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Events Sorted",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/events?sort=date",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"events"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "date"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Event",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/events/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"events",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
